@@ -17,7 +17,6 @@ public class DoorTriggerScript : MonoBehaviour {
   {
     if (coll.gameobject.tag == "Player")
     {
-      GameObject[] doors = GameObject.FindGameObjectsWithTag("Door");
       
     }
   }
