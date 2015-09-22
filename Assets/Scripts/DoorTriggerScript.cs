@@ -12,12 +12,4 @@ public class DoorTriggerScript : MonoBehaviour {
 	void Update () {
 	
 	}
-  
-  void OnCollisionEnter2D (Collision2D coll)
-  {
-    if (coll.gameobject.tag == "Player")
-    {
-      
-    }
-  }
 }
