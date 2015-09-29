@@ -3,13 +3,40 @@ using System.Collections;
 
 public class DoorTriggerScript : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+public Transform player;
+public Vector3 teleportTo;
+public bool playerInside;
+public Color col;
+
+
+	void OnTriggerEnter2D(Collider2D other)
+  {
+    if (other.transform.tag == "Player")
+    {
+        playerInside = true;
+        player = other.transform;
+    }
+  }
+
+  void OnTriggerExit2D(Collider2D other)
+  {
+    if (other.transform.tag == "Player")
+    {
+        playerInside = false;
+        player = null;
+    }
+  }
+
+  void Update()
+  {
+      if (playerInside == true && Input.GetButtonDown("Fire1")){
+          player.position = teleportTo;
+      }
+  }
+
+  void OnDrawGizmos(){
+    Gizmos.color = col;
+    Gizmos.DrawWireSphere(teleportTo, .5f);
+  }
+
 }
