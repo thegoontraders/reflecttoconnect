@@ -29,7 +29,7 @@ public Color col;
 
   void Update()
   {
-      if (playerInside == true && Input.GetButtonDown("Fire1")){
+      if (playerInside == true && (Input.GetButtonDown("ActionButton") || Input.GetButtonDown("ActionController"))){
           player.position = teleportTo;
       }
   }
