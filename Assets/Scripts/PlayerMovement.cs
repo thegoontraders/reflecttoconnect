@@ -10,11 +10,12 @@ public class PlayerMovement : MonoBehaviour {
   public float baseSpeed = 0f;
   public Rigidbody2D rigidbody;
 
-  private bool isWalking = false;
+  public bool isWalking = false;
 	
 	void FixedUpdate ()
   {
     baseSpeed = Input.GetAxis(horizontalAxisInput);
+    if (baseSpeed > 0){ isWalking = true; }else{ isWalking = false; }
     rigidbody.velocity = new Vector2(baseSpeed * maxSpeed, rigidbody.velocity.y);
 	}
 }
